@@ -1,0 +1,13 @@
+# local
+.claude/
+.vercel/
+.DS_Store
+Thumbs.db
+*.log
+
+# originais das imagens e material de trabalho (ficam só no computador)
+IMAGENS SITE/
+*.pdf
+
+# planejamento interno (não pode ir para o site)
+PLANO-BONUS.md
