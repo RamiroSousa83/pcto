@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Data: mapa gallery images ---------- */
   const MAP_IDS = [
-    "001","002","003","004","005","006","007","008",
-    "009","010","011","012","013","014","015","016",
+    "002","003","004","005","006","007","008","009",
+    "010","011","012","013","014","015","016","017",
   ];
 
-  /* Benefícios do mapa (carrossel 2). Cada um usa um mapa real: materia-01..10.webp */
+  /* Carrossel de matérias: um mapa real por cartão (materia-01..16.webp, ordem do tools/montar-imagens.py) */
   const SUBJECTS = [
-    "Pegadinhas do Cebraspe destacadas", "Conceito-chave em poucas linhas", "Como cai no Cebraspe",
-    "Lembre rápido para revisar", "Base legal no rodapé de cada mapa", "Ajustado ao edital Cebraspe",
-    "Um tema inteiro em uma página", "Ilustrações que fixam o conteúdo", "Pronto para imprimir em A4",
-    "Revisão em minutos",
+    "Português: ideia central e argumentação", "Português: conectivos", "Informática: sistemas operacionais",
+    "Informática: Linux", "Raciocínio Lógico: condicional", "Raciocínio Lógico: quantificadores",
+    "Direito Penal: lei penal no tempo", "Direito Penal: territorialidade", "Processo Penal: lei processual",
+    "Processo Penal: indiciamento", "Abuso de Autoridade", "Lei de Tortura", "Processo Penal: diligências",
+    "Constitucional: aplicabilidade", "Constitucional: igualdade", "Constitucional: direito à vida",
   ];
 
   /* ---------- Top bar date ---------- */
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const list = MAP_IDS;
     const build = () =>
       list
-        .map((id) => `<img src="/assets/img/mapa-${id}.webp" alt="Mapa da Aprovação PC-TO: exemplo de página" loading="lazy" />`)
+        .map((id) => `<img src="/assets/img/mapa-${id}.webp" alt="Mapa da Aprovação PC-TO: exemplo de página do material" loading="lazy" />`)
         .join("");
     track1.innerHTML = build() + build();
   }
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="marquee-badge__mid">MAPA DA APROVAÇÃO</span>
           </div>
           <div class="marquee-badge__tablet">
-            <img src="/assets/img/materia-${String(n % SUBJECTS.length + 1).padStart(2, "0")}.webp?v=2" alt="Mapa da Aprovação: ${s}" loading="lazy" />
+            <img src="/assets/img/materia-${String(n % SUBJECTS.length + 1).padStart(2, "0")}.webp?v=7" alt="Mapa da Aprovação PC-TO: ${s}" loading="lazy" />
           </div>
           <span class="marquee-badge__subject">${s}</span>
         </div>`
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Stack art (mockup do produto) ---------- */
   document.querySelectorAll(".stack-art").forEach((el) => {
-    el.innerHTML = '<img src="/assets/img/mockup-produto.webp?v=3" alt="Mapa da Aprovação PC-TO Investigador: capa e mapas do material" loading="lazy" />';
+    el.innerHTML = '<img src="/assets/img/mockup-produto.webp?v=7" alt="Mapa da Aprovação PC-TO: 290 mapas visuais e 4 bônus" loading="lazy" />';
   });
 
   /* ---------- Marquee controls (pause / prev / next) ---------- */

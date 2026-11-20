@@ -11,3 +11,13 @@ IMAGENS SITE/
 
 # planejamento interno (não pode ir para o site)
 PLANO-BONUS.md
+
+# bônus e order bumps (só o PDF importa e fica no computador; o site não pode publicar)
+resumos/
+bonus/
+
+# áudios para ouvir (não vai pro site)
+_ouvir/
+
+# fontes das ferramentas (só no computador)
+tools/fonts/
