@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Stack art (mockup do produto) ---------- */
   document.querySelectorAll(".stack-art").forEach((el) => {
-    el.innerHTML = '<img src="/assets/img/mockup-produto.webp?v=7" alt="Mapa da Aprovação PC-TO: 290 mapas visuais e 4 bônus" loading="lazy" />';
+    el.innerHTML = '<img src="/assets/img/mockup-produto.webp?v=8" alt="Mapa da Aprovação PC-TO: 290 mapas visuais e 4 bônus" loading="lazy" />';
   });
 
   /* ---------- Marquee controls (pause / prev / next) ---------- */
