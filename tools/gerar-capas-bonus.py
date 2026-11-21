@@ -51,9 +51,9 @@ def sobe(arq, nome):
 
 
 BONUS = {
-    "01": dict(titulo="SIMULADO DA APROVAÇÃO", sub="PADRÃO CEBRASPE · CERTO OU ERRADO",
+    "01": dict(titulo="SIMULADO DA APROVAÇÃO", sub="PROVA COMPLETA NO PADRÃO CEBRASPE",
                faixa="TEMPO • GABARITO • REVISÃO", mapa="012",
-               desenho="a stopwatch, an answer sheet with filled bubbles marked C and E, a pencil and a green check mark"),
+               desenho="a stopwatch, an answer sheet with filled bubbles, a pencil and a green check mark"),
     "02": dict(titulo="REDAÇÃO NOTA MÁXIMA", sub="ESTRUTURA E TEMAS PARA TREINAR",
                faixa="ESTRUTURA • CRITÉRIOS • TEMAS", mapa="002",
                desenho="an open notebook with a handwritten essay, a fountain pen and a correction checklist clipboard"),
