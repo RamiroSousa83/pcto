@@ -8,6 +8,7 @@ Origem (IMAGENS SITE):
                                     002-006 Português, 007-011 Informática, 012-016 Raciocínio Lógico,
                                     017-021 Direito Penal, 022-026 Processo Penal,
                                     027-031 Legislação Penal Especial, 032-036 Constitucional
+  - capas-ia/bonus-01..04.png        capas 3D dos bônus (tools/gerar-capas-bonus.py); têm prioridade
   - bonus-01..04.* (opcional)       capas reais dos bônus; sem elas o script gera provisórias
   - texto-corrido-fato-tipico.webp  texto corrido do comparador (o mesmo da PCBA, tema Fato Típico)
 
@@ -289,8 +290,14 @@ def mockup(bonus_imgs):
             colar_com_sombra(tela, livro(pagina(next(fila)), cw - 12, ch), x + cw / 2, y + ch / 2, sombra=22)
     colar_com_sombra(tela, tablet(capa(), 620), 948, 560, angulo=-4.5, sombra=34, opac=255)
     bw, bh = 340, 480
-    for (cx, cy, ang), im in zip([(395, 1612, 2.5), (772, 1655, -2.0), (1150, 1640, 1.5), (1524, 1618, -3.0)], bonus_imgs):
-        colar_com_sombra(tela, livro(im, bw, bh, lombada=16), cx, cy, angulo=ang, sombra=26)
+    for k, ((cx, cy, ang), im) in enumerate(zip([(395, 1612, 2.5), (772, 1655, -2.0), (1150, 1640, 1.5), (1524, 1618, -3.0)], bonus_imgs)):
+        if im.mode == "RGBA":  # capa 3D gerada por IA (tools/gerar-capas-bonus.py): já vem com volume e fundo transparente
+            colar_com_sombra(tela, largura(im, 468), 250 + k * 482, 1660, sombra=14, opac=120)
+        else:
+            colar_com_sombra(tela, livro(im, bw, bh, lombada=16), cx, cy, angulo=ang, sombra=26)
+    x0, y0, x1, y1 = tela.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox()
+    tela = tela.crop((0, 0, W, min(H, y1 + 24)))
+    W, H = tela.size
     tela = tela.resize((1120, round(1120 * H / W)), Image.LANCZOS)
     salvar_webp(tela, "mockup-produto.webp", qualidade=84)
 
@@ -335,8 +342,13 @@ def main():
         salvar_webp(largura(pagina(pag), 440), f"materia-{i:02d}.webp", qualidade=78)
     bonus_imgs = []
     for i, (tag, l1, l2, sub, pag) in enumerate(BONUS, 1):
+        ia = ORIGEM / "capas-ia" / f"bonus-{i:02d}.png"
         own = achar(f"bonus-{i:02d}")
-        im = Image.open(own).convert("RGB") if own else bonus_provisorio(tag, l1, l2, sub, pag)
+        if ia.exists():  # mockup 3D do bônus (tools/gerar-capas-bonus.py), recortado nas bordas transparentes
+            im = Image.open(ia).convert("RGBA")
+            im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())
+        else:
+            im = Image.open(own).convert("RGB") if own else bonus_provisorio(tag, l1, l2, sub, pag)
         bonus_imgs.append(im)
         salvar_webp(largura(im, 700), f"bonus-{i:02d}.webp", qualidade=78)
     salvar_webp(Image.open(ORIGEM / "texto-corrido-fato-tipico.webp").convert("RGB"), "texto-corrido.webp", qualidade=80)
