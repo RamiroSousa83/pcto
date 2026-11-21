@@ -72,7 +72,8 @@ on a fully transparent background with a soft contact shadow. Do not copy any te
 The book cover design must follow the visual identity of the SECOND image (the PC-TO study material cover):
 white ruled notebook paper with a black spiral binding on the left edge, thick black brush-stroke banners with bold white
 hand lettering, bright yellow highlighter strokes, and illustrations drawn in blue ballpoint pen sketch style.
-The loose pages behind the book must look like the THIRD image (visual study map pages, notebook style, yellow highlights).
+The loose pages behind the book must be copies of the THIRD image (a real study map page): keep its exact titles and text,
+do not invent new page text or new topics.
 
 Cover text, in Brazilian Portuguese, spelled exactly like this and nothing else:
 - top line, small: "MAPA DA APROVAÇÃO · PC-TO"
