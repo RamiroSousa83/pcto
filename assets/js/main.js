@@ -54,6 +54,28 @@ document.addEventListener("DOMContentLoaded", () => {
     track2.innerHTML = build() + build();
   }
 
+  /* ---------- Marquee 3: modos de uso (fotos) ---------- */
+  const trackRotina = document.getElementById("marquee-rotina-track");
+  if (trackRotina) {
+    const USOS = [
+      "lendo um mapa no celular dentro do ônibus",
+      "revisando um mapa no celular em pé no metrô",
+      "grifando um mapa impresso na mesa da cozinha",
+      "estudando pelo notebook em uma sala de estudos",
+      "lendo um mapa no celular no intervalo da academia",
+      "revisando mapas impressos no sofá de casa",
+      "lendo um mapa no celular dentro do carro, no almoço",
+      "estudando no quarto com mapas colados na parede",
+      "lendo um mapa no tablet na rodoviária",
+      "grifando um mapa impresso na padaria",
+    ];
+    const build = (copia) =>
+      USOS.map(
+        (uso, n) => `<img src="/assets/img/rotina-${String(n + 1).padStart(2, "0")}.webp?v=1" width="640" height="800" alt="${copia ? "" : `Pessoa ${uso}`}" ${copia ? 'aria-hidden="true" ' : ""}loading="lazy" />`
+      ).join("");
+    trackRotina.innerHTML = build(false) + build(true);
+  }
+
   /* ---------- Stack art (mockup do produto) ---------- */
   document.querySelectorAll(".stack-art").forEach((el) => {
     el.innerHTML = '<img src="/assets/img/mockup-produto.webp?v=11" alt="Mapa da Aprovação PC-TO: 290 mapas visuais e 4 bônus" loading="lazy" />';
